@@ -8,7 +8,7 @@ import { getAssetByID } from '@react-native/assets-registry/registry';
 import { Image, Platform } from 'react-native';
 
 import { assertExpoModulesPresent, getErrorCallback, type LoadAsyncAsset } from './dynamic-loading-setting';
-import type { DynamicLoader, FontSource } from './types';
+import type { FontSource } from './types';
 
 const loadPromises: { [fontSource: string]: Promise<void> } = {};
 
@@ -90,7 +90,7 @@ const isLoadedNative = (fontFamily: string) => {
   return fontFamily in loadedFontsCache;
 };
 
-export const dynamicLoader: DynamicLoader = {
+export const dynamicLoader = {
   isLoaded: isLoadedNative,
   loadFontAsync,
 };
